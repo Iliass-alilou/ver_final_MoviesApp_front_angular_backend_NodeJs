@@ -1,0 +1,14 @@
+<div class="container mt-5 mb-5">
+
+    <div class="row  row-cols-3 row-cols-md-5 ">
+      
+        <div  id="card" class="card-block" *ngFor="let film of films ; let index=index;" >
+          <app-film [filmData] = "films[index]" > </app-film>
+        </div>
+
+    </div>
+
+    <div class="row justify-content-center mt-5">
+      <app-pagination [number_pages]="number_pages" [films]="films"></app-pagination>
+    </div>
+</div>

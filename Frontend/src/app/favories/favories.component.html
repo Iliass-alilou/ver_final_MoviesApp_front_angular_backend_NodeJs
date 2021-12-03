@@ -1,0 +1,13 @@
+<div class="container mt-5">
+     <h1 class="title mb-5">List of your favorite movies </h1>
+      <div class="row">
+        <div class="col-md-2 col-sm-6" [routerLink]="['../DetailFilm/'+films[index].idFilm]" routerLinkActive="active"  *ngFor="let film of films; let index = index;">
+          <div class="card card-block">
+            <h4 class="card-title text-right"><i class="fas fa-heart"></i></h4>
+            <img src="{{service.getImage(films[index].poster_path)}}" alt="Photo of sunset" />
+            <h5 class="card-title mt-3 mb-3">{{films[index].title}}</h5>
+           </div>
+        </div>
+      </div>
+</div>
+    

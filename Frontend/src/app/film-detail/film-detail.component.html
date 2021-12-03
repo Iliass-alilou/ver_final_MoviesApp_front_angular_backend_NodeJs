@@ -1,0 +1,91 @@
+<div class="container py-3">
+  <!-- <div class="title h1 text-center">Horizontal cards - Bootstrap 4</div> -->
+  <!-- Card Start -->
+  <div class="card">
+    <div class="row ">
+
+      <div class="col-md-7 px-3">
+        <div class="card-block px-6">
+          <h4 class=" card-title" *ngIf="filmDetail != undefined" class="title">{{filmDetail.title}}</h4>
+          <p class="desc" *ngIf="filmDetail!=null">{{filmDetail.overview}}</p>
+          <br>
+          <a [href]="filmDetail.homepage" target="_blank">Read more</a>
+
+          <br>
+          <br>
+          <br>
+          <br>
+
+          <div class="rate_date">
+            <p class="rating" *ngIf="filmDetail!=null">{{filmDetail.vote_average}}/10</p>
+            <p class="date" *ngIf="filmDetail!=null">{{filmDetail.release_date}}</p>
+         </div>
+         <br>
+         <a (click)="addFavoris()" *ngIf="isFavoris==false" class="btn btn-success btn-sm ">Add to favorites</a>
+
+        </div>
+      </div>
+      <div *ngIf='urlVideo!=""' class="container trailer">
+        <iframe title="YouTube video player" [src]="urlVideo" frameborder="0" autoplay allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <!-- Carousel start -->
+      <div class="col-md-5">
+        <div id="CarouselTest" class="carousel slide" data-ride="carousel">
+         
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img class="d-block" *ngIf="filmDetail != undefined" src="{{service.getImage(filmDetail.poster_path)}}" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End of carousel -->
+    </div>
+  </div>
+  <!-- End of card -->
+
+</div>
+
+<div class="container ">
+    <div class="card float-left">
+      <div class="row ">
+
+        <div class="col-sm-12">
+          <div class="card-block">
+
+            <form (submit)="addrevue(revuedetail)" class="form-group">
+              <label for="exampleFormControlTextarea1">Your Comment</label>
+              <textarea #revuedetail class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+              <div class="col-sm-5 ml-lg-5">
+                <button  class="btn btn-primary btn-sm">Commenter</button>
+              </div>
+            </form>
+
+          </div>
+        </div>
+
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="card float-right">
+      <div class="row">
+        <ul class="revues">
+          <li *ngFor="let r of revues; let index = index;">
+              <p class="name"><i class="bi bi-star-fill text-warning">{{r["rate"]}}</i>  By <span>{{r["idUser"]}}</span> at {{r["date"]}} : </p>
+              <p class="content">{{r["content"]}}</p>
+          </li>
+      </ul>
+      </div>
+    </div>
+  </div>
+
+
+ <br>
+ <br>
+ <br>
+ <br>
+ 
