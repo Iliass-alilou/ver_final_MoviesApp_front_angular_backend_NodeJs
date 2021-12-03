@@ -1,6 +1,6 @@
 # MoviesApp
 
-un projet fullstack avec Angular et NodeJs et MongoDb
+a fullstack project with Angular, NodeJs and MongoDb
 
 - the implementation of the TMDB API (The Movie DataBase)
 - viewing and pagination of the film 
